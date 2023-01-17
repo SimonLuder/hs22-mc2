@@ -48,14 +48,6 @@ def reconstruct_svd_numba_setup_mp(file_queue, reco_queue, TPB=32, verbose=False
 
         (u, s, vt, k) = file
 
-        # im = Image.open(file).convert('L')
-        # im = im - np.min(im) / np.max(im) - np.min(im) # normalize data
-        # u, s, vt = np.linalg.svd(im, full_matrices=False)
-
-        # if k is None:
-        #     # k = np.min(im.shape)
-        #     k = len(s)
-
         u = np.array(u[:, 0:k])
         s = np.array(s[0:k])
         vt = np.array(vt[0:k, :])
